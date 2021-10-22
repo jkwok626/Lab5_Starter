@@ -27,7 +27,6 @@ function init() {
 
     // Gets the different voices available and store them in the voices array
     voices = synth.getVoices();
-    console.log(voices);
 
     // Loop through the voices array
     for (var i = 0; i < voices.length; i++) {
@@ -53,16 +52,21 @@ function init() {
 
   talkBtn.addEventListener('click', () => {
 
-    // When the user clicks the button, change the image src so that it has an open mouth
-    face.src = "assets/images/smiling-open.png";
-
     // Returns the option that the user selected. 
     // selectedOptions returns a list of the options that have been selected, so we need to use an index to get the user's option. 
     var userOption = voiceSelector.selectedOptions[0];
 
+    // If the userOption has a value of "select" (the user hasn't selected a voice), the smiling face shouldn't speak
+    if (userOption.value == "select") {
+      return;
+    }
+
     // Once we have the option that the user chose, get the option's name
     var nameOfOption = userOption.getAttribute('data-name');
     
+    // When the user clicks the button, change the image src so that it has an open mouth
+    face.src = "assets/images/smiling-open.png";
+
     // Create a new instance of SpeechSynthesusUtterance with the user's inputted text
     var speechLine = new SpeechSynthesisUtterance(inputField.value);
 
