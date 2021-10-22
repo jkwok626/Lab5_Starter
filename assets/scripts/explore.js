@@ -22,6 +22,8 @@ function init() {
   // Gets the textarea where the user enters their text
   var inputField = document.getElementById('text-to-speak');
 
+  // Referenced SpeechSynthesis documentation at https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+
   // Function for filling up the list of voices
   function fillList() {
 
