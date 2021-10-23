@@ -59,8 +59,8 @@ function init() {
     playBtn.addEventListener('click', () => {
       sound.play();
 
-      // If the party horn is selected, shoot out the confetti
-      if (selectedHorn.value == 'party-horn') {
+      // If the party horn is selected and the volume isn't muted, shoot out the confetti
+      if (selectedHorn.value == 'party-horn' && volume.value != 0) {
         jsConfetti.addConfetti();
       }
     });
